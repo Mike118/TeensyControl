@@ -12,7 +12,14 @@ void setup() {
 }
 
 void loop() {
-  readSerial(); 
+  //readSerial();
+  if(recvData()) {
+    for(uint8_t i = 0; i < 6; i++) {
+       setGoal(i, getPosition(i));
+    }    
+    moveMotors();
+    //moveMotorsAsync();
+  }
   if (newTest.check()) {
     toggleLed();
     displayAllCountSerial1();
