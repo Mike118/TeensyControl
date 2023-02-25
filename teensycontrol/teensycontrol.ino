@@ -300,60 +300,20 @@ void setup() {
     digitalWrite(PINSPEED[i], OUTPUT);
   //  stepper[i].setMinPulseWidth(5); //****************************************ADD WITH TEENSY if clock very fast
 
- // stepper[i].setMaxSpeed(25000); // 11000
- //*** stepper[i].setMaxSpeed(60000/2); // 11000
+ 
    stepper[i].setMaxSpeed(6400*2.5); // 11000
- //  stepper[i].setMaxSpeed(NBPASPARTOUR*20); // 11000
- // stepper[i].setAcceleration(12800);  // 12000
- // stepper[i].setMaxSpeed(19800); // 3.5 round/s
-// stepper[i].setMaxSpeed(3200); // 3.5 round/s
-
-//  stepper[i].setAcceleration(NBPASPARTOUR*5);  // 12000
-//*** stepper[i].setAcceleration(40000/2);  // 12000
+ 
    stepper[i].setAcceleration(6400*1);  //tmc 2209
- //    stepper[i].setAcceleration(6400*3);  // augmente acceleration avec DM556
-   //   stepper[i].setAcceleration(12000); 
-   //  stepper[i].setAcceleration(4800); 
-  //   stepper[i].setAcceleration(3200);  // poiur satie
-
+ 
      }
      
  tourTest=6400*1;
- /*
- positionX9= tourTest*2; // premier
  
- positionX8=tourTest*3;  // DM556
- positionX7=tourTest;
-
- positionX6=tourTest;
- 
- positionX5=tourTest;
- positionX4=tourTest*3;
- 
- positionX3=tourTest*1;
- positionX2=tourTest*1;
- positionX1=tourTest;
- 
- positionX=tourTest*-3; // premier devant moi
-*/
-
-//PCTer1=1; //off
- PCTer1=3; //on
-
- 
-// PCTer3=1; //off
-  PCTer3=3; //on
-
-
  PCTer2= 2; // JoeTransfo
  PCTer2= -2; // noJoeTransfo
 
  PC0=tourTest*1; // premier devant moi
  
-  PC9=PC0; //PC9 dernier moteur
-  PC8=PC0;
-  PC7=PC0;
-  PC6=PC0;
   PC5=PC0;
   PC4=PC0;
   PC3=PC0;
@@ -365,21 +325,6 @@ void setup() {
 
 
 void loop() { 
-/*
-  if (PCTer1 > 0) {
- digitalWrite(ENABLEPIN[0], LOW); // you turn on the driver
-  } 
-  if (PCTer1 < 1) {
- digitalWrite(ENABLEPIN[0], HIGH); // you turn off the driver
-  } 
-  if (PCTer3 > 0) {
- digitalWrite(ENABLEPIN[1], LOW); // you turn on the driver
-  } 
-  if (PCTer3 < 1) {
- digitalWrite(ENABLEPIN[1], HIGH); // you turn off the driver
-  } 
-*/
- 
 
  for(uint8_t i = 0; i < NBMOTEURS-0; i++) { 
 
@@ -468,9 +413,6 @@ void loop() {
 
   }
 }
-
-
-
 
 void recvWithStartEndMarkers() {
     static boolean recvInProgress = false;
@@ -646,7 +588,7 @@ void noJoeTransformation()
 } 
 
 void sendPositionNativePort() {  //
-
+}
 void tickSteppers()
 {  
       //    Serial1.print ("AftertickSteppers>"); 
